@@ -1,0 +1,12 @@
+services:
+  app:
+    build: .
+    networks:
+      - my-network
+    external_links:
+      - postgres:postgres
+
+
+networks:
+  my-network:
+    external: true
