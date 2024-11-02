@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pokemon List</title>
+</head>
+<body>
+<h1>Pokemon List</h1>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Type 1</th>
+        <th>Type 2</th>
+    </tr>
+    <tr th:each="pokemon : ${pokemonList}">
+        <td th:text="${pokemon.id}"></td>
+        <td th:text="${pokemon.name}"></td>
+        <td th:text="${pokemon.type1}"></td>
+        <td th:text="${pokemon.type2}"></td>
+    </tr>
+</table>
+</body>
+</html>
