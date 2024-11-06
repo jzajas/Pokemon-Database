@@ -3,13 +3,14 @@ package com.zajdsky.pokemonDatabase.Controllers;
 import com.zajdsky.pokemonDatabase.Services.PokemonService;
 import com.zajdsky.pokemonDatabase.Templates.Pokemon;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
-@RestController
+@Controller
 public class MainController {
 
     @Autowired
@@ -18,9 +19,14 @@ public class MainController {
 
     @GetMapping("/pokemon")
     public String getAllPokemon(Model model) {
-        List<Pokemon> pokemonList = pokemonService.getAllPokemon();  // Call the instance method
+        Iterable<Pokemon> pokemonList = pokemonService.getAllPokemon();  // Call the instance method
         model.addAttribute("pokemonList", pokemonList);
-        return "pokemon";  // This refers to the Thymeleaf template called "pokemon.html"
+        return "pokemon";
+    }
+
+    @GetMapping("/")
+    public String index() {
+        return "index";
     }
 
 }

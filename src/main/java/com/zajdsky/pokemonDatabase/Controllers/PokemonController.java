@@ -21,7 +21,12 @@ public class PokemonController {
     }
 
     @GetMapping("/all")
-    public List<Pokemon> getAllPokemon() {
+    public Iterable<Pokemon> getAllPokemon() {
         return pokemonService.getAllPokemon();
+    }
+
+    @GetMapping("/{name}")
+    public List<Pokemon> findPokemonByName(@PathVariable String name ) {
+        return pokemonService.findPokemonByName(name);
     }
 }

@@ -1,16 +1,13 @@
 package com.zajdsky.pokemonDatabase.Templates;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.GenerationType;
-import lombok.Getter;
+import jakarta.persistence.*;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 
-@Entity
-@Getter @Setter  @NoArgsConstructor
+
+@Entity @Table(name="pokemon", schema="public")
+@NoArgsConstructor @Data
 public class Pokemon {
 
     @Id
